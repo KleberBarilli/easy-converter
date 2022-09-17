@@ -1,2 +1,1 @@
-# start-ts-node-express
-Projeto start base para aplicações node com express, typescript, eslint/prettier, jest, babel...
+# Easy converter
