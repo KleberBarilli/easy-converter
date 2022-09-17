@@ -1,29 +1,20 @@
 import 'reflect-metadata';
 import 'dotenv/config';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
+import fetch from 'node-fetch';
 import 'express-async-errors';
 import cors from 'cors';
-import AppError from '../shared/errors/AppError';
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.set('view engine', 'ejs');
+app.use(express.static('../../../web/public'));
+app.use(express.urlencoded({ extended: true }));
 
-app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-	if (error instanceof AppError) {
-		return res.status(error.statusCode).json({
-			status: 'error',
-			message: error.message,
-		});
-	}
-	return res.status(500).json({
-		status: 'error',
-		message: error.message,
-	});
-});
+app.post('/', (req: Request, res: Response) => {});
 
 app.listen(process.env.PORT, () => {
 	console.log(`Rodando na porta ${process.env.PORT}`);
-	console.log(`Ambiente ${process.env.NODE_ENV}`);
 });
