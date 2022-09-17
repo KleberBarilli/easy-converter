@@ -1,7 +1,7 @@
 {
-  "name": "ts-node-express-start",
+  "name": "easy-converter",
   "version": "1.0.0",
-  "description": "Esqueleto do ínicio de uma api usando typescript, nodejs, express, prettier/eslint, jest etc...",
+  "description": "Api p/ converter arquivos",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node dist/shared/server.js",
