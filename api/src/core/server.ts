@@ -4,7 +4,6 @@ import express, { Request, Response } from 'express';
 import axios from 'axios';
 import 'express-async-errors';
 import cors from 'cors';
-import { info } from 'console';
 
 const app = express();
 
@@ -18,7 +17,6 @@ app.get('/', (req: Request, res: Response) => {
 	res.render('index');
 });
 app.post('/convert-mp3', async (req: Request, res: Response) => {
-	console.log('HELLO');
 	const videoUrl = req.body.videoUrl;
 	if (!videoUrl) {
 		return res.render('index', {
@@ -26,10 +24,16 @@ app.post('/convert-mp3', async (req: Request, res: Response) => {
 			message: 'Please, enter a video URL',
 		});
 	}
+
+	const regExp =
+		/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+	const match = videoUrl.match(regExp);
+	const videoId = match && match[7].length == 11 ? match[7] : false;
+
 	const options = {
 		method: 'GET',
 		url: 'https://youtube-mp36.p.rapidapi.com/dl',
-		params: { id: videoUrl },
+		params: { id: videoId },
 		headers: {
 			'X-RapidAPI-Key': process.env.RAPID_API_KEY,
 			'X-RapidAPI-Host': process.env.RAPID_API_HOST,
