@@ -99,7 +99,7 @@ body{
   color: black;
   padding: 12px;
   color: white;
-  background-color: red;
+  background-color: rgb(61, 5, 216);
   border-radius: 5px;
   text-decoration: none;
   box-shadow: 2px 2px 5px gray;
@@ -107,13 +107,13 @@ body{
   cursor: pointer;
   letter-spacing: 1px;
   font-family: inherit;
-  border: 1px solid red;
+  border: 1px solid rgb(2, 0, 0);
   transition: 0.3s ease-out;
 }
 
 #download-btn:hover{
-  color:black;
-  background-color:  white;
+  color:white;
+  background-color:  rgb(10, 255, 63);
   border: 1px solid  lightgray;
   transform: scale(1.1);
 }
