@@ -8,7 +8,7 @@ module.exports = {
 		alias: {
 		  "@modules": "./src/modules",
 		  "@config": "./src/config",
-		  "@shared": "./src/shared"
+		  "@core": "./src/core"
 		}
 	  }],
 	  "babel-plugin-transform-typescript-metadata",
@@ -16,4 +16,3 @@ module.exports = {
 	  ["@babel/plugin-proposal-class-properties", { "loose": true }],
 	],
   }
-  
